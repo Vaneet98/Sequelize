@@ -1,5 +1,5 @@
 var db = require("../models/index.js");
-const sequelize = require("../models/users.js");
+/* const sequelize = require("../models/users.js"); */
 const Users = db.users;
 const { Op } = require("sequelize");
 
@@ -115,7 +115,7 @@ var countData = async (req, res) => {
   res.json(data);
 };
 
-//12. count not soft deleted data
+//11. count not soft deleted data
 var countnotdeleteddata = async (req, res) => {
   let { count, rows } = await Users.findAndCountAll({
     where: {
@@ -131,7 +131,7 @@ var countnotdeleteddata = async (req, res) => {
   res.json(response);
 };
 
-//11 Operator
+//12 Operator
 //1. Equal to operator
 var EqualToOperator = async (req, res) => {
   let data = await Users.findAll({
@@ -200,7 +200,7 @@ var AndOperator = async (req, res) => {
         id: 5,
       },
       [Op.and]: {
-        name: "vanni thakur",
+        name: "Tanvvi",
       },
     },
   });
@@ -212,7 +212,7 @@ var OrOperator = async (req, res) => {
   let data = await Users.findAll({
     where: {
       [Op.or]: {
-        id: 4,
+        id: 2,
       },
       [Op.or]: {
         gender: "male",
